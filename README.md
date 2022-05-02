@@ -67,3 +67,20 @@ Además, en la consola de logs se imprimirá un mensaje según lo definido en el
 El objetivo es completar una pantalla como la siguiente:
 
 ![image-20220502081913283](/home/juan/.config/Typora/typora-user-images/image-20220502081913283.png)
+
+Se trae la información que hay en, por ejemplo, http://localhost:8000/dispositivo/2/mediciones. Notar que en el puerto 8000 se verá la información como:
+
+![image-20220502090635590](/home/juan/.config/Typora/typora-user-images/image-20220502090635590.png)
+
+#### Dispositivo/:id/logs
+
+Para traer los logs de la tabla Logs_Riego, por ejemplo, de http://localhost:8000/dispositivo/2/log, se usa el archivo log.service.ts que lee:
+
+![image-20220502090956986](/home/juan/.config/Typora/typora-user-images/image-20220502090956986.png)
+
+y, luego, del procesamiento completo, se imprime en el puerto 8100 como:
+
+![image-20220502091031303](/home/juan/.config/Typora/typora-user-images/image-20220502091031303.png)
+
+
+
