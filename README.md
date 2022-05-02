@@ -44,21 +44,18 @@ En este  servicio tengo definidos los dispositivos que levantaré en el template
 
 #### Template: home.page.html:
 
-En el home se tiene el título del proyecto ("*Sistema de riego automatizado*") y el listado de dispositivos, leído de `dispositivoServ.listado` y recorrido con `*ngFor`. Cada sensor está linkeado a su respectiva página, usando `routerLink` (es decir, acá se define que, al apretar un botón, te redirija a la página que corresponde, como podría ser http://localhost:8100/dispositivo/1. Esto puede verse en `frontend/src/app/home/home.page.html` y se obtiene la siguiente imagen.
-
-![image-20220427055610541](https://github.com/indajm/dam/tree/main/FiguresREADME/image-20220427055610541.png)
-
+En el home se tiene el título del proyecto ("*Sistema de riego automatizado*") y el listado de dispositivos, leído de `dispositivoServ.listado` y recorrido con `*ngFor`. Cada sensor está linkeado a su respectiva página, usando `routerLink` (es decir, acá se define que, al apretar un botón, te redirija a la página que corresponde, como podría ser http://localhost:8100/dispositivo/1. Esto puede verse en `frontend/src/app/home/home.page.html`
 
 
 ### Dispositivo/:id
 
 En el archivo .html se define el título de la página, se verifica si el sensor tiene mediciones (en caso de no tener, se imprimirá un mensaje indicándolo) y se crean los botones (con el link que corresponde) para ver las mediciones y el log de un sensor. En el archivo de TypeScript se crea el gráfico que indicará la última medición de cada sensor. Por ejemplo, si el último valor es 60 se indicará:
 
-![image-20220502081433521](/home/juan/.config/Typora/typora-user-images/image-20220502081433521.png)
+![image-20220502081433521](https://user-images.githubusercontent.com/31355184/166236613-30514cfe-007e-47b9-80ce-2d29c532089f.png)
 
 Si el último valor es 30:
 
-![image-20220502081551252](/home/juan/.config/Typora/typora-user-images/image-20220502081551252.png)
+![image-20220502081551252](https://user-images.githubusercontent.com/31355184/166236945-31374f4f-f06c-4ab7-b465-2fe6910008e1.png)
 
 Además, en la consola de logs se imprimirá un mensaje según lo definido en el enunciado. Por ejemplo, cuando la última medición es de 30 kPA, dirá *"El suelo está seco. Debe regarse de inmediato"*
 
@@ -66,21 +63,35 @@ Además, en la consola de logs se imprimirá un mensaje según lo definido en el
 
 El objetivo es completar una pantalla como la siguiente:
 
-![image-20220502081913283](/home/juan/.config/Typora/typora-user-images/image-20220502081913283.png)
+![image-20220502081913283](https://user-images.githubusercontent.com/31355184/166236970-87a7a04d-0a5a-4bb8-928e-a4b198facf97.png)
 
 Se trae la información que hay en, por ejemplo, http://localhost:8000/dispositivo/2/mediciones. Notar que en el puerto 8000 se verá la información como:
 
-![image-20220502090635590](/home/juan/.config/Typora/typora-user-images/image-20220502090635590.png)
+![image-20220502090635590](https://user-images.githubusercontent.com/31355184/166237018-dee188e5-73a5-44d8-8b80-c44ed4e6b4d3.png)
 
 #### Dispositivo/:id/logs
 
 Para traer los logs de la tabla Logs_Riego, por ejemplo, de http://localhost:8000/dispositivo/2/log, se usa el archivo log.service.ts que lee:
 
-![image-20220502090956986](/home/juan/.config/Typora/typora-user-images/image-20220502090956986.png)
+![image-20220502090956986](https://user-images.githubusercontent.com/31355184/166237038-2a8be041-04da-4c89-b3b2-7a313ec4db7c.png)
 
 y, luego, del procesamiento completo, se imprime en el puerto 8100 como:
 
-![image-20220502091031303](/home/juan/.config/Typora/typora-user-images/image-20220502091031303.png)
+![image-20220502091031303](https://user-images.githubusercontent.com/31355184/166237051-096c7f48-bf5a-42b2-b423-960f56f32115.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
