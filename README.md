@@ -4,6 +4,8 @@ Para correr el programa:
 - Backend: `docker-compose up` en la carpeta de backend
 - Frontend: `ionic serve` en la carpeta de frontend
 
+Se debe generar la carpeta `node_modules` en backend y frontend, ejecutando `npm install`
+
 ## Backend
 
 Primero, en el backend se definen las dependencias y puertos a utilizar. A continuación, se define el ruteo para lo que voy a usar, que en este caso es una carpeta para dispositivos, otra para mediciones y otra para las elecroválvulas. Las 3 carpetas se ubican en `src/backend/routes`:
