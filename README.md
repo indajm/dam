@@ -1,6 +1,8 @@
 # Desarrollo de aplicaciones Multiplataforma. Especialización IoT. FIUBA
 
-
+Para correr el programa:
+- Backend: `docker-compose up` en la carpeta de backend
+- Frontend: `ionic serve` en la carpeta de frontend
 
 ## Backend
 
