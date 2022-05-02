@@ -46,7 +46,7 @@ En este  servicio tengo definidos los dispositivos que levantaré en el template
 
 En el home se tiene el título del proyecto ("*Sistema de riego automatizado*") y el listado de dispositivos, leído de `dispositivoServ.listado` y recorrido con `*ngFor`. Cada sensor está linkeado a su respectiva página, usando `routerLink` (es decir, acá se define que, al apretar un botón, te redirija a la página que corresponde, como podría ser http://localhost:8100/dispositivo/1. Esto puede verse en `frontend/src/app/home/home.page.html` y se obtiene la siguiente imagen.
 
-![image-20220427055610541](./FiguresREADME/image-20220427055610541.png)
+![image-20220427055610541](https://github.com/indajm/dam/tree/main/FiguresREADME/image-20220427055610541.png)
 
 
 
