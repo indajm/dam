@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Log del sensor elegido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let una_fila of this.array_logs" >
+    <ion-avatar slot="start">
+        <ion-icon size="large" name="flower"></ion-icon>
+    </ion-avatar>
+    <ion-label>
+        <h3>ID  {{una_fila.logRiegoId}} | Apertura {{una_fila.apertura}} | {{una_fila.fecha|date:"dd.MM.yy @ hh:mm:ss"}} </h3>
+        
+    </ion-label>
+  </ion-item>
+</ion-content>
