@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { Dispositivo } from '../model/Dispositivo';
+import { Dispositivo } from '../model/Dispositivo';
 import { DispositivoService } from '../services/dispositivo.service';
 
 @Component({
@@ -8,8 +8,19 @@ import { DispositivoService } from '../services/dispositivo.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  //listadoDispositivo:Dispositivo[];
 
-  constructor(public dispositivoServ:DispositivoService) {}
+  listaDispositivos:Dispositivo[];
+
+  constructor(public servicio_dispositivo:DispositivoService) {}
+
+
+  async cargarTodosLosDispositivos(){
+    let lista = await this.servicio_dispositivo.getTodosLosDispositivos();
+    this.listaDispositivos = lista;
+  }
+
+  ionViewDidEnter(){
+    this.cargarTodosLosDispositivos();
+  }
 
 }
