@@ -16,5 +16,7 @@ import { DispositivoPage } from './dispositivo.page';
     DispositivoPageRoutingModule
   ],
   declarations: [DispositivoPage]
+  
 })
+
 export class DispositivoPageModule {}

@@ -6,6 +6,7 @@ import { Dispositivo } from '../model/Dispositivo';
 import { MedicionService } from '../services/medicion.service';
 import { Medicion } from '../model/Medicion';
 import { DispositivoService } from '../services/dispositivo.service';
+import * as moment from 'moment';
 
 
 //
@@ -33,6 +34,7 @@ export class DispositivoPage implements OnInit {
   //
   private valorObtenido:number=0;
   private chartOptions;
+  public boton_abrir:Boolean;
   //
 
   
@@ -40,9 +42,9 @@ export class DispositivoPage implements OnInit {
   constructor(
     private router:ActivatedRoute, 
     private dispositivo_service:DispositivoService,
-    private medicion_service:MedicionService
+    private medicion_service:MedicionService,
     ) { 
-      
+      this.boton_abrir = true;
     }
 
 
@@ -74,7 +76,29 @@ export class DispositivoPage implements OnInit {
     }
   }
 
+
+  // ABRIR ELECTROVALVULA: set apertura = true
+  async abrirElectrovalvula(){
+    console.log("dispositivo.page.ts -> abrir");
+    this.dispositivo_service.cambiarEstadoElectrovalvula(true, this.dispositivo.electrovalvulaId);
+    this.boton_abrir= false;
+  }
   
+  // CERRAR ELECTROVALVULA: set apertura = false
+  async cerrarElectrovalvula(){
+    console.log("dispositivo.page.ts -> cerrar");
+    this.dispositivo_service.cambiarEstadoElectrovalvula(false, this.dispositivo.electrovalvulaId);
+    let valor = Math.floor(Math.random()*30); // random value between 0 and 30
+    console.log(`Valor random: ${valor}`)
+    let fecha_actual = moment().format('YYYY-MM-DD hh:mm:ss')
+    console.log(`Valor random: ${fecha_actual}`)
+    //console.log(`Fecha actual: ${formatDate(fecha_actual)}`)
+    //let fecha_actual = "2022-05-03 22:34:12"
+    this.dispositivo_service.agregarMedicion(new Medicion(1, fecha_actual, valor.toString(), this.dispositivo.dispositivoId))
+    this.boton_abrir = true;
+    this.actualizarChart(valor);
+    
+  }
 
   ionViewWillEnter(){
     console.log("ION VIEW WILL ENTER")

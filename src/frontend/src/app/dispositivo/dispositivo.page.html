@@ -22,6 +22,10 @@
       </ion-card-content>
     </ion-card></div>
   
-  <ion-button color="primary" expand="block" routerLink="/dispositivo/{{idElectrovalvula}}/log" routerDirection="forward"> Ver Logs</ion-button> 
+  <ion-button color="primary" expand="block" routerLink="/dispositivo/log/{{idElectrovalvula}}" routerDirection="forward"> Ver Logs</ion-button> 
   <ion-button color="primary" expand="block" routerLink="/dispositivo/{{idDispositivo}}/mediciones" routerDirection="forward">Mediciones</ion-button> 
+  <div *ngIf="boton_abrir; then contentAbrir else contentCerrar"></div>
+  <ng-template #contentAbrir><ion-button color="primary" expand="block" (click)="abrirElectrovalvula()">Abrir electroválvula</ion-button></ng-template>
+  <ng-template #contentCerrar><ion-button color="primary" expand="block" (click)="cerrarElectrovalvula()">Cerrar electroválvula</ion-button></ng-template>
+
 </ion-content>
