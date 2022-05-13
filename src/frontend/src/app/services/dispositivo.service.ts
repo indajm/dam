@@ -11,21 +11,15 @@ import { catchError, retry, pluck, filter } from 'rxjs/operators';
 export class DispositivoService {
 
 
-  listado:Array<Dispositivo> = new Array<Dispositivo>();
+  //lista:Array<Dispositivo> = new Array<Dispositivo>();
   
-  constructor(private http:HttpClient) {
-    //constructor() {
-    var disp:Dispositivo= new Dispositivo(1,"Sensor 1","Patio",1);
-    var disp2:Dispositivo= new Dispositivo(2,"Sensor 2","Cocina",2);
-    var disp3:Dispositivo= new Dispositivo(3,"Sensor 3","Jardin Delantero",3);
-    var disp4:Dispositivo= new Dispositivo(4,"Sensor 4","Living",4);
-    this.listado.push(disp);
-    this.listado.push(disp2);
-    this.listado.push(disp3);
-    this.listado.push(disp4);
-    console.log("CONSTRUCTOR");
-   }
+  constructor(private http:HttpClient) {}
    
+   getTodosLosDispositivos():Promise<Dispositivo[]>{
+    return this.http.get("http://localhost:8000/dispositivo").toPromise().then((lista:Dispositivo[])=>{
+      return lista;
+    });
+  }
 
    getDispositivo(id: number):Promise<Dispositivo>{
       console.log("getDispositivo - url: "+ `http://localhost:8000/dispositivo/${id}`);
@@ -50,4 +44,30 @@ export class DispositivoService {
       .toPromise();
     }
 
+    public cambiarEstadoElectrovalvula(abrir_EV: Boolean, id: number){
+      console.log("Cambiar estado electroválvula");
+      let ruta_destino = null;
+      if (abrir_EV){
+        // Call ABRIR ELECTROVALVULA
+        console.log(`http://localhost:8000/electrovalvula/abrir/${id}`)
+        ruta_destino = (`http://localhost:8000/electrovalvula/abrir/${id}`)
+      } else{
+        // Call CERRAR ELECTROVALVULA
+        console.log(`http://localhost:8000/electrovalvula/cerrar/${id}`)
+        ruta_destino = (`http://localhost:8000/electrovalvula/cerrar/${id}`)
+      }
+      console.log("BEFORE PUT");
+    return this.http.put(ruta_destino, null).toPromise().then(()=>{});
+    }
+
+    public agregarMedicion(medicion:Medicion){
+      console.log("dispositivo.service.ts - agregarMedicion");
+      return this.http.post(`http://localhost:8000/medicion`, {
+        fecha:medicion.fecha, valor:medicion.valor, dispositivoId:medicion.dispositivoId
+      }).toPromise().then((result)=>{ 
+        return result; 
+      });
+    }
+    
+    
 }

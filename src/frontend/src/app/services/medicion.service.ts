@@ -15,12 +15,14 @@ import { catchError, retry, pluck, filter } from 'rxjs/operators';
     
     
     getMedicionesEnUnDispositivo(id:number):Promise<Medicion[]>{
-      let url = `http://localhost:8000/dispositivo/${id}/mediciones`;
+      let url = `http://localhost:8000/medicion/${id}`;
       console.log(`url getMedicionesEnUnDispositivo: ${url}`);
       return this.http.get(url).toPromise().then((array_medicion:Medicion[])=>{
         console.log(`Mediciones logueadas: ${array_medicion}`)
         return array_medicion;
       });
     };
+
+    
     
   }

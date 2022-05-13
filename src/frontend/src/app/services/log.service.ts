@@ -15,7 +15,7 @@ import { catchError, retry, pluck, filter } from 'rxjs/operators';
     
     
     getLogs(id:number):Promise<Log[]>{
-      let url = `http://localhost:8000/dispositivo/${id}/log`;
+      let url = `http://localhost:8000/electrovalvula/log/${id}`;
       console.log(`url getLogs: ${url}`);
       return this.http.get(url).toPromise().then((array_logs:Log[])=>{
         console.log(`Logs: ${array_logs}`)
