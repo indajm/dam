@@ -73,32 +73,37 @@ Se trae la información que hay en, por ejemplo, http://localhost:8000/dispositi
 
 ![image-20220502090635590](https://user-images.githubusercontent.com/31355184/166237018-dee188e5-73a5-44d8-8b80-c44ed4e6b4d3.png)
 
-#### Dispositivo/log/:id
+#### Electrovalvula/log/:id
 
-Para traer los logs de la tabla Logs_Riego, por ejemplo, de http://localhost:8000/dispositivo/2/log, se usa el archivo log.service.ts que lee:
+Para traer los logs de la tabla Logs_Riego, por ejemplo, de http://localhost:8000/electrovalvula/log/2, se usa el archivo log.service.ts que lee:
 
-![image-20220502090956986](https://user-images.githubusercontent.com/31355184/166237038-2a8be041-04da-4c89-b3b2-7a313ec4db7c.png)
+![image](https://user-images.githubusercontent.com/31355184/168220213-d3786f2e-a0d9-408f-9fee-5efa8db72f9b.png)
+
 
 y, luego, del procesamiento completo, se imprime en el puerto 8100 como:
 
-![image-20220502091031303](https://user-images.githubusercontent.com/31355184/166237051-096c7f48-bf5a-42b2-b423-960f56f32115.png)
+![image](https://user-images.githubusercontent.com/31355184/168220306-10f33363-2ae6-4bf1-897a-82d775ba10d7.png)
 
 
 #### Abrir electroválvula
 
 Cuando se abra una electroválvula, apretando en el botón "Abrir electroválvula", se imprimirá una línea en el log (botón "Ver logs"):
+
 ![image](https://user-images.githubusercontent.com/31355184/168219718-867aa0f7-cd05-4a8c-b3f5-c11af710e3cf.png)
 
 
 #### Cerrar electroválvula
 
 Cuando se cierre la electroválvula, se calculará un valor random entre 0 y 30 y se lo imprimirá en el gráfico:
+
 ![image](https://user-images.githubusercontent.com/31355184/168219847-d43b1a9e-a8ee-4847-a81a-9eaa0be737de.png)
 
 También se agregará una fila en la tabla de mediciones:
+
 ![image](https://user-images.githubusercontent.com/31355184/168219895-63d9bf63-bf72-4542-b3fb-ff53d5215190.png)
 
 Y en la de logs:
+
 ![image](https://user-images.githubusercontent.com/31355184/168219940-85df6717-3e41-41cd-a3ec-f3916896be43.png)
 
 
