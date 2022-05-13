@@ -26,7 +26,6 @@ routerDispositivo.get("/:id", function(req, res){
         }
         res.send(result);
     })
-    console.log("1111");
 
 })
 
