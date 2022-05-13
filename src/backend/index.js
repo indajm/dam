@@ -14,7 +14,7 @@ var PORT = 3000;
 var routerDisp = require('./routes/dispositivo');
 var routerMedicion = require('./routes/medicion');
 //var routerRiego = require('./routes/riego');
-//var routerElectrovalvula = require('./routes/electrovalvula');
+var routerElectrovalvula = require('./routes/electrovalvula');
 
 // The app.use() function adds a new middleware to the app. Essentially, whenever a request hits your backend, Express will execute the functions you passed to app.use() in order.
 
@@ -27,10 +27,10 @@ app.use(express.json());
 // First case:
 app.use('/dispositivo', routerDisp);
 
-// For the measurements, we will use the same first part of the link. For example, http://localhost:8000/dispositivo/1/mediciones
-app.use('/dispositivo', routerMedicion);
+// For the measurements, we will use, for example, http://localhost:8000/medicion/1/mediciones
+app.use('/medicion', routerMedicion);
 //app.use('/api/riego', routerRiego);
-//app.use('/api/electrovalvula', routerElectrovalvula;
+app.use('/electrovalvula', routerElectrovalvula);
 
 app.listen(PORT, function(req, res) {
     console.log("API Funcionando ");
