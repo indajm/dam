@@ -10,8 +10,9 @@
         <ion-icon size="large" name="flower"></ion-icon>
     </ion-avatar>
     <ion-label>
-        <h3>ID  {{una_fila.logRiegoId}} | Apertura {{una_fila.apertura}} | {{una_fila.fecha|date:"dd.MM.yy @ hh:mm:ss"}} </h3>
-        
+        <!-- <h3>ID  {{una_fila.logRiegoId}} | Apertura {{una_fila.apertura}} | {{una_fila.fecha|date:"dd.MM.yy @ hh:mm:ss"}} </h3> -->
+        <div *ngIf="una_fila.apertura===1" [ngStyle]="{'color':'green'}"> [ID  {{una_fila.logRiegoId}}] Abierto el día {{una_fila.fecha|date:"dd.MM.yy @ hh:mm:ss"}}  </div>
+        <div *ngIf="una_fila.apertura===0" [ngStyle]="{'color':'red'}"> [ID  {{una_fila.logRiegoId}}] Cerrado el día {{una_fila.fecha|date:"dd.MM.yy @ hh:mm:ss"}}  </div>
     </ion-label>
   </ion-item>
 </ion-content>
